@@ -32,7 +32,11 @@ ul {
 ul li a {
   display: block;
   padding: 3px;
-
+  border-radius: 3px;
+  text-decoration: none;
+}
+ul li a:hover {
+  background: #eee;
 }
 footer {
   margin: 10px 20px 30px;
