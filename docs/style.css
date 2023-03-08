@@ -27,11 +27,15 @@ p {
   padding: 3px 10px 10px;
 }
 ul {
-  margin: 20px 20px 20px 40px;
+  margin: 20px 20px 20px 30px;
+}
+ul ul,
+ul ol {
+  margin: 10px 10px 30px 30px;
 }
 ul li a {
   display: block;
-  padding: 3px;
+  padding: 4px 10px;
   border-radius: 3px;
   text-decoration: none;
 }
