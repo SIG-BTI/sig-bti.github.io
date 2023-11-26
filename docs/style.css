@@ -33,6 +33,11 @@ ul ul,
 ul ol {
   margin: 10px 10px 30px 30px;
 }
+ul li::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 ul li a {
   display: block;
   padding: 4px 10px;
@@ -41,6 +46,16 @@ ul li a {
 }
 ul li a:hover {
   background: #eee;
+}
+ul li a.page-link {
+  float: left;
+  width: calc(100% - 100px);
+}
+ul li a.pdf-link {
+  float: right;
+  width: 65px;
+  padding: 4px 5px;
+  text-align: center;
 }
 footer {
   margin: 10px 20px 30px;
