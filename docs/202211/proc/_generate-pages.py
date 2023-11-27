@@ -13,34 +13,48 @@ def gen_html(proc_id, author, title):
   html = '''
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>{title}</title>
-    <meta name="DC.title" content="{title}"></meta>
-    <meta name="citation_title" content="{title}"></meta>
-    <meta name="DC.language" content="JA"></meta>{dc_creator}
-    <meta name="citation_publication_date" content="{issued_date}"></meta>
-    <meta name="DC.issued" content="{issued_date}"></meta>
-    <meta name="citation_conference_title" content="{conf_name}"></meta>
-    <meta name="DC.relation.ispartof" content="{conf_name}"></meta>
-    <meta name="citation_firstpage" content="{first_page}"></meta>
-    <meta name="DC.citation.spage" content="{first_page}"></meta>
-    <meta name="citation_lastpage" content="{last_page}"></meta>
-    <meta name="DC.citation.epage" content="{last_page}"></meta>
-    <meta name="citation_pdf_url" content="{pdf_url}"></meta>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>{title}</title>
+  <meta name="DC.title" content="{title}"></meta>
+  <meta name="citation_title" content="{title}"></meta>
+  <meta name="DC.language" content="JA"></meta>{dc_creator}
+  <meta name="citation_publication_date" content="{issued_date}"></meta>
+  <meta name="DC.issued" content="{issued_date}"></meta>
+  <meta name="citation_conference_title" content="{conf_name}"></meta>
+  <meta name="DC.relation.ispartof" content="{conf_name}"></meta>
+  <meta name="citation_firstpage" content="{first_page}"></meta>
+  <meta name="DC.citation.spage" content="{first_page}"></meta>
+  <meta name="citation_lastpage" content="{last_page}"></meta>
+  <meta name="DC.citation.epage" content="{last_page}"></meta>
+  <meta name="citation_pdf_url" content="{pdf_url}"></meta>
+  <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+  <header>
+    <h1>IPSJ SIG BTI Proceedings</h1>
+    <h2>情報処理学会 IoT行動変容学研究グループ（BTI） 研究会論文集</h2>
+  </header>
+  <div class="main">
     <h1><a href="{pdf_url}">{title}</a></h1>
-    <dl>
+    <dl class="proceedings-meta">
       <dt>Title</dt><dd>{title}</dd>
       <dt>Author</dt><dd>{author}</dd>
       <dt>Pages</dt><dd>{first_page}-{last_page}</dd>
       <dt>Abstract</dt><dd></dd>
-      <dt>Conference</dt><dd>{conf_name}</dd>
+      <dt>Conference</dt><dd><a href="../../">{conf_name}</a></dd>
       <dt>Paper ID</dt><dd>{proc_id}</dd>
       <dt>PDF Url</dt><dd><a href="{pdf_url}">{pdf_url}</a></dd>
     </dl>
-  </body>
+  </div>
+  <footer>
+    <a href="http://www.sig-bti.jp/">
+      情報処理学会 IoT行動変容学研究グループ（BTI）<br>
+      Behavior Transformation by IoT
+      <small>http://www.sig-bti.jp/</small>
+    </a>
+  </footer>
+</body>
 </html>'''.format(proc_id = proc_id,
                   title = title,
                   author = ", ".join(author),

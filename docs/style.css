@@ -69,3 +69,25 @@ footer a small {
   display: block;
   padding: 10px;
 }
+
+dl.proceedings-meta {
+  margin: 10px;
+  border-bottom: 1px dotted #ccc;
+}
+dl.proceedings-meta dt {
+  float: left;
+  width: 150px;
+  min-height: 20px;
+  line-height: 20px;
+  padding: 8px 0;
+  font-weight: bold;
+  border-top: 1px dotted #ccc;
+}
+dl.proceedings-meta dd {
+  margin: 0 0 0 150px;
+  padding: 8px 0;
+  min-height: 20px;
+  line-height: 20px;
+  border-top: 1px dotted #ccc;
+  word-break: break-all;
+}
