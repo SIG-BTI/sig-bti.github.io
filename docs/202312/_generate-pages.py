@@ -18,7 +18,7 @@ proceedings_urls = {
 issued_date = "/".join(c_date)
 conf_month = ".".join(c_date[:1])
 conf_date_ja = c_date[0] + "年" + c_date[1] + "月" + c_date[2] + "日"
-pdf_url = "https://ipsj-bti.github.io/proceedings/" + c_date[0] + c_date[1] + "/pdf/{proc_id}.pdf"
+pdf_url = "https://sig-bti.github.io/" + c_date[0] + c_date[1] + "/pdf/{proc_id}.pdf"
 
 category_list = {
   "oral": "口頭発表（Oral）",

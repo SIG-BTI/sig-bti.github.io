@@ -5,7 +5,7 @@ data = pd.read_csv('_proc.csv')
 
 issued_date = "2022/03/06"
 conf_name = "AIoT行動変容学会第３回研究会（BTI3）"
-pdf_url = "https://ipsj-bti.github.io/proceedings/202303/pdf/{proc_id}.pdf"
+pdf_url = "https://sig-bti.github.io/202303/pdf/{proc_id}.pdf"
 last_page = ""
 first_page = ""
 
