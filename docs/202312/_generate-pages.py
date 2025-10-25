@@ -49,8 +49,8 @@ def gen_paper_page_html(proc_id, author, title, category, start_page, end_page):
 </head>
 <body>
   <header>
-    <h1>Academy of Behavior Transformation by AIoT (BTI) Proceedings</h1>
-    <h2>AIoT行動変容学会（BTI） 研究会論文集</h2>
+    <h1>SIG-BTI DIGITAL LIBRARY</h1>
+    <h2>Academy of Behavior Transformation by AIoT / AIoT行動変容学会（BTI）</h2>
   </header>
   <div class="main">
     <h1><a href="{pdf_url}">{title}</a></h1>
@@ -113,8 +113,8 @@ def gen_index_page_html():
 </head>
 <body>
   <header>
-    <h1>Academy of Behavior Transformation by AIoT (BTI) Proceedings</h1>
-    <h2>AIoT行動変容学会（BTI） 研究会論文集</h2>
+    <h1>SIG-BTI DIGITAL LIBRARY</h1>
+    <h2>Academy of Behavior Transformation by AIoT / AIoT行動変容学会（BTI）</h2>
   </header>
   <div class="main">
     <h2><a href="../">Top</a> / {conf_id} in {conf_place_en} ({conf_month})</h2>
