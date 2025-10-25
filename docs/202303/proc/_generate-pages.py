@@ -8,6 +8,7 @@ conf_name = "AIoT行動変容学会第３回研究会（BTI3）"
 pdf_url = "https://sig-bti.github.io/202303/pdf/{proc_id}.pdf"
 last_page = ""
 first_page = ""
+conf_id = "BTI03"
 
 def gen_html(proc_id, author, title):
   html = '''
@@ -28,6 +29,9 @@ def gen_html(proc_id, author, title):
   <meta name="citation_lastpage" content="{last_page}"></meta>
   <meta name="DC.citation.epage" content="{last_page}"></meta>
   <meta name="citation_pdf_url" content="{pdf_url}"></meta>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../style.css">
 </head>
 <body>
@@ -36,6 +40,11 @@ def gen_html(proc_id, author, title):
     <h2>Academy of Behavior Transformation by AIoT / AIoT行動変容学会（BTI）</h2>
   </header>
   <div class="main">
+    <ul class="breadcrumb clearfix">
+      <li><a href="../">Top</a></li>
+      <li><a href="../../">{conf_id}</a></li>
+      <li>{proc_id}</li>
+    </ul>
     <h1><a href="{pdf_url}">{title}</a></h1>
     <dl class="proceedings-meta">
       <dt>Title</dt><dd>{title}</dd>
@@ -55,7 +64,8 @@ def gen_html(proc_id, author, title):
     </a>
   </footer>
 </body>
-</html>'''.format(proc_id = proc_id,
+</html>'''.format(conf_id = conf_id,
+                  proc_id = proc_id,
                   title = title,
                   author = ", ".join(author),
                   dc_creator = gen_dc_creator(author),

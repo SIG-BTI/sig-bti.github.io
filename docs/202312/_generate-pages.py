@@ -16,7 +16,7 @@ proceedings_urls = {
 
 # do not change
 issued_date = "/".join(c_date)
-conf_month = ".".join(c_date[:1])
+conf_month = ".".join(c_date[:2])
 conf_date_ja = c_date[0] + "年" + c_date[1] + "月" + c_date[2] + "日"
 pdf_url = "https://sig-bti.github.io/" + c_date[0] + c_date[1] + "/pdf/{proc_id}.pdf"
 
@@ -45,6 +45,9 @@ def gen_paper_page_html(proc_id, author, title, category, start_page, end_page):
   <meta name="citation_lastpage" content="{end_page}"></meta>
   <meta name="DC.citation.epage" content="{end_page}"></meta>
   <meta name="citation_pdf_url" content="{pdf_url}"></meta>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../style.css">
 </head>
 <body>
@@ -53,6 +56,11 @@ def gen_paper_page_html(proc_id, author, title, category, start_page, end_page):
     <h2>Academy of Behavior Transformation by AIoT / AIoT行動変容学会（BTI）</h2>
   </header>
   <div class="main">
+    <ul class="breadcrumb clearfix">
+      <li><a href="../">Top</a></li>
+      <li><a href="../../">{conf_id}</a></li>
+      <li>{proc_id}</li>
+    </ul>
     <h1><a href="{pdf_url}">{title}</a></h1>
     <dl class="proceedings-meta">
       <dt>Title</dt><dd>{title}</dd>
@@ -73,7 +81,8 @@ def gen_paper_page_html(proc_id, author, title, category, start_page, end_page):
     </a>
   </footer>
 </body>
-</html>'''.format(proc_id = proc_id,
+</html>'''.format(conf_id = conf_id,
+                  proc_id = proc_id,
                   title = title,
                   author = ", ".join(author),
                   dc_creator = gen_dc_creator(author),
@@ -109,6 +118,9 @@ def gen_index_page_html():
   <meta name="DC.issued" content="{issued_date}"></meta>
   <meta name="citation_conference_title" content="{conf_name}"></meta>
   <meta name="DC.relation.ispartof" content="{conf_name}"></meta>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -117,31 +129,27 @@ def gen_index_page_html():
     <h2>Academy of Behavior Transformation by AIoT / AIoT行動変容学会（BTI）</h2>
   </header>
   <div class="main">
-    <h2><a href="../">Top</a> / {conf_id} in {conf_place_en} ({conf_month})</h2>
+    <ul class="breadcrumb clearfix">
+      <li><a href="../">Top</a></li>
+      <li>{conf_id}</li>
+    </ul>
+    <h1>{conf_id} in {conf_place_en} ({conf_month})</h1>
     <p>
       {conf_name}, {conf_date_ja}, {conf_place_ja}<br>
       <a href="{conf_url}">{conf_url}</a>
     </p>
+    <h2>Combined</h2>
     <ul>
-      <li>
-        <h3>Combined</h3>
-        <ul>
-          {proceedings_pdf_list}
-        </ul>
-      </li>
-      <li>
-        <h3>Oral Session</h3>
-        <ol>
-          {oral_session_list}
-        </ol>
-      </li>
-      <li>
-        <h3>Poster/Demo Session</h3>
-        <ol>
-          {posterdemo_session_list}
-        </ol>
-      </li>
+      {proceedings_pdf_list}
     </ul>
+    <h2>Oral Session</h2>
+    <ol>
+      {oral_session_list}
+    </ol>
+    <h2>Poster/Demo Session</h2>
+    <ol>
+      {posterdemo_session_list}
+    </ol>
   </div>
   <footer>
     <a href="http://www.sig-bti.jp/">
