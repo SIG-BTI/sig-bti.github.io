@@ -4,7 +4,7 @@ import os
 data = pd.read_csv('_proc.csv')
 
 issued_date = "2022/03/06"
-conf_name = "IoT行動変容学研究グループ第３回研究会（BTI3）"
+conf_name = "AIoT行動変容学会第３回研究会（BTI3）"
 pdf_url = "https://ipsj-bti.github.io/proceedings/202303/pdf/{proc_id}.pdf"
 last_page = ""
 first_page = ""
@@ -32,8 +32,8 @@ def gen_html(proc_id, author, title):
 </head>
 <body>
   <header>
-    <h1>IPSJ SIG BTI Proceedings</h1>
-    <h2>情報処理学会 IoT行動変容学研究グループ（BTI） 研究会論文集</h2>
+    <h1>Academy of Behavior Transformation by AIoT (BTI) Proceedings</h1>
+    <h2>AIoT行動変容学会（BTI） 研究会論文集</h2>
   </header>
   <div class="main">
     <h1><a href="{pdf_url}">{title}</a></h1>
@@ -49,7 +49,7 @@ def gen_html(proc_id, author, title):
   </div>
   <footer>
     <a href="http://www.sig-bti.jp/">
-      情報処理学会 IoT行動変容学研究グループ（BTI）<br>
+      AIoT行動変容学会（BTI）<br>
       Behavior Transformation by IoT
       <small>http://www.sig-bti.jp/</small>
     </a>
