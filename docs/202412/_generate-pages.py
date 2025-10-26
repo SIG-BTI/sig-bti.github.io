@@ -32,8 +32,8 @@ conf_date_ja = start_date[0] + "年" + start_date[1] + "月" + start_date[2] + "
 pdf_url = "https://sig-bti.github.io/" + start_date[0] + start_date[1] + "/pdf/{proc_id}.pdf"
 
 category_list = {
-  "oral": "口頭発表（Oral）",
-  "posterdemo": "ポスター・デモ発表（Poster/Demo）"
+  "oral": "口頭発表（Oral Session）",
+  "posterdemo": "ポスター・デモ発表（Poster/Demo Sesssion）"
 }
 
 def gen_paper_page_html(proc_id, author, title, category, start_page, end_page):
@@ -153,18 +153,9 @@ def gen_index_page_html():
                   <dd>{conf_place_en}</dd>
       <dt>URL</dt><dd><a href="{conf_url}">{conf_url}</a></dd>
     </dl>
-    <h2>Proceedings</h2>
-    <ul>
-      {proceedings_pdf_list}
-    </ul>
-    <h2>Oral Session</h2>
-    <ol>
-      {oral_session_list}
-    </ol>
-    <h2>Poster/Demo Session</h2>
-    <ol>
-      {posterdemo_session_list}
-    </ol>
+    {proceedings_pdf_list}
+    {oral_session_list}
+    {posterdemo_session_list}
   </div>
   <footer>
     <a href="http://www.sig-bti.jp/">
@@ -205,6 +196,9 @@ def gen_proceedings_pdf_list():
   for k, v in proceedings_urls.items():
     html += "<li><a href=\"" + v + "\">" + k + "</a></li>"
 
+  if html != "":
+    html = "<h2>Proceedings</h2><ul>" + html + "</ul>"
+
   return html
 
 
@@ -222,6 +216,9 @@ def gen_paper_list(target_category):
                 + ", ".join(author) + "<br><strong>" + title + "</strong></a>" \
               + "<a href=\"pdf/"+proc_id+".pdf\" class=\"pdf-link\">[PDF]</a>" \
             + "</li>"
+
+  if html != "":
+    html = "<h2>" + category_list[target_category] + "</h2><ol>" + html + "</ol>"
 
   return html
 

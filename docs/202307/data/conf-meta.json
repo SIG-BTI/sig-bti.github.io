@@ -1,0 +1,22 @@
+{
+  "conf_id":    "BTI04",
+  "conf_name":  "AIoT行動変容学会第4回研究会",
+  "conjunction_conf": {
+    "name": "マルチメディア、分散、協調とモバイルシンポジウム（DICOMO 2023）",
+    "url": "https://dicomo.org/2023/"
+  },
+  "conf_url":   "https://dicomo.org/2023/",
+  "start_date": ["2023", "7", "5"],
+  "end_date":   ["2023", "7", "7"],
+  "venue_city": {
+    "en": "Toyama City, Toyama, Japan",
+    "ja": "富山県富山市"
+  },
+  "venue_place": {
+    "en": "Toyama International Conference Center",
+    "ja": "富山国際会議場"
+  },
+  "proceedings_urls": {
+    "Proceedings (IPSJ電子図書館)": "https://ipsj.ixsq.nii.ac.jp/search?page=1&size=20&sort=custom_sort&search_type=2&q=11353"
+  }
+}

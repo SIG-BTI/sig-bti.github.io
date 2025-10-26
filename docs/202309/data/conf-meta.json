@@ -1,0 +1,22 @@
+{
+  "conf_id":    "BTI05 / BTIW2023",
+  "conf_name":  "The 2nd BTI International Workshop",
+  "conjunction_conf": {
+    "name": "The 5th International Conference on Activity and Behavior Computing (ABC 2023)",
+    "url": "https://abc-research.github.io/2023/"
+  },
+  "conf_url":   "https://www.sig-bti.jp/event/btiw-report.html",
+  "start_date": ["2023", "9", "7"],
+  "end_date":   ["2023", "9", "9"],
+  "venue_city": {
+    "en": "Kaiserslautern, Germany",
+    "ja": "ドイツ・カイザースラウテルン"
+  },
+  "venue_place": {
+    "en": "DFKI Kaiserslautern",
+    "ja": "ドイツ人工知能研究センター（DFKI）"
+  },
+  "proceedings_urls": {
+    "Proceedings (J-STAGE)": "https://www.jstage.jst.go.jp/browse/ijabc/2024/1/_contents/-char/en"
+  }
+}

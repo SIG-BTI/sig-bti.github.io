@@ -1,0 +1,23 @@
+{
+  "conf_id":    "BTI07 / BTIW2024",
+  "conf_name":  "The 2nd BTI International Workshop",
+  "conjunction_conf": {
+    "name": "The 22nd ACM International Conference on Mobile Systems, Applications, and Services (MobiSys 2024)",
+    "url": "https://www.sigmobile.org/mobisys/2024/"
+  },
+  "conf_url":   "https://www.sig-bti.jp/event/btiw2024_program.html",
+  "start_date": ["2024", "6", "7"],
+  "end_date":   [],
+  "venue_city": {
+    "en": "Minato City, Tokyo, Japan",
+    "ja": "東京都港区"
+  },
+  "venue_place": {
+    "en": "Toranomon Hills",
+    "ja": "虎ノ門ヒルズ"
+  },
+  "proceedings_urls": {
+    "Proceedings (combined PDF)": "pdf/Proceedings_BTIW2024.pdf",
+    "Proceedings (ACM Digital Library)": "https://dl.acm.org/doi/proceedings/10.1145/3662008"
+  }
+}
