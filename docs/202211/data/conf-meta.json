@@ -1,0 +1,22 @@
+{
+  "conf_id":    "BTI02",
+  "conf_name":  "AIoT行動変容学会第2回研究会",
+  "conjunction_conf": {
+    "name": "",
+    "url": ""
+  },
+  "conf_url":   "http://www.sig-bti.jp/event/bti02_info.html",
+  "start_date": ["2022", "11", "21"],
+  "end_date":   ["2022", "11", "22"],
+  "venue_city": {
+    "en": "Nara City, Nara, Japan",
+    "ja": "奈良県奈良市"
+  },
+  "venue_place": {
+    "en": "Bosco Villa",
+    "ja": "大和高原ボスコヴィラ"
+  },
+  "proceedings_urls": {
+    "Proceedings (Combined PDF)": "pdf/Proceedings_BTI02.pdf"
+  }
+}
