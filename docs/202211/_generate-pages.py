@@ -30,7 +30,7 @@ proceedings_urls = conf_meta["proceedings_urls"]
 issued_date = "/".join(start_date)
 conf_month = ".".join(start_date[:2])
 conf_date_ja = start_date[0] + "年" + start_date[1] + "月" + start_date[2] + "日" + ("〜" + end_date[1] + "月" + end_date[2] + "日" if len(end_date) > 2 else "")
-pdf_url = "https://sig-bti.github.io/" + start_date[0] + start_date[1] + "/pdf/{proc_id}.pdf"
+pdf_url = "https://sig-bti.github.io/" + start_date[0] + start_date[1].zfill(2) + "/pdf/{proc_id}.pdf"
 
 category_list = {
   "oral": "口頭発表（Oral Session）",
