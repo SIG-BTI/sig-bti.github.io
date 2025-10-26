@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import json
+import math
 
 csv_data = pd.read_csv('data/proc.csv')
 with open('data/conf-meta.json', "r", encoding="utf-8") as f:
@@ -244,8 +245,8 @@ def gen_paper_page():
     author = row['author'].split(';')
     title = row['title']
     category = row['category']
-    start_page = row['start_page']
-    end_page = row['end_page']
+    start_page = "" if math.isnan(row['start_page']) else row['start_page']
+    end_page = "" if math.isnan(row['end_page']) else row['end_page']
 
     target_dir = "proc/" + proc_id
 
