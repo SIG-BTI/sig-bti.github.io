@@ -1,0 +1,22 @@
+{
+  "conf_id":    "BTI09",
+  "conf_name":  "AIoT行動変容学会第9回研究会",
+  "conjunction_conf": {
+    "name": "",
+    "url": ""
+  },
+  "conf_url":   "https://www.sig-bti.jp/event/bti09.html",
+  "start_date": ["2025", "3", "10"],
+  "end_date":   ["2025", "3", "11"],
+  "venue_city": {
+    "en": "Hakodate City, Hokkaido, Japan",
+    "ja": "北海道函館市"
+  },
+  "venue_place": {
+    "en": "Future University Hakodate",
+    "ja": "はこだて未来大学"
+  },
+  "proceedings_urls": {
+    "Proceedings (combined PDF)": "pdf/Proceedings_BTI09.pdf"
+  }
+}
