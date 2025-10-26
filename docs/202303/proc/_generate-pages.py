@@ -59,7 +59,7 @@ def gen_html(proc_id, author, title):
   <footer>
     <a href="http://www.sig-bti.jp/">
       AIoT行動変容学会（BTI）<br>
-      Behavior Transformation by IoT
+      Academy of Behavior Transformation by AIoT
       <small>http://www.sig-bti.jp/</small>
     </a>
   </footer>

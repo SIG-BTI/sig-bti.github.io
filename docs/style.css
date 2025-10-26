@@ -11,6 +11,16 @@
 }
 html, body {
   background: #eee;
+  color: #333;
+}
+a {
+  color: #1955A6;
+}
+a:hover {
+  opacity: 0.9;
+}
+a:visited {
+  color: #6918a6;
 }
 header {
   background: #333;
@@ -53,54 +63,28 @@ header h2 {
 .main h1 {
   padding: 10px;
 }
-.main h2 {
-  padding: 10px;
-}
-p {
-  padding: 3px 10px 30px;
-}
-ul, ol {
-  margin: 0 20px 20px 50px;
-}
-li::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-li a {
-  display: block;
-  padding: 4px 10px;
-  border-radius: 3px;
-  text-decoration: none;
-}
-li a:hover {
-  background: #eee;
-}
-li a.page-link {
-  float: left;
-  width: calc(100% - 100px);
-}
-li a.pdf-link {
-  float: right;
-  width: 65px;
-  padding: 4px 5px;
-  text-align: center;
-}
-
-footer {
-  margin: 0;
-  padding: 10px 20px 30px;
-  text-align: center;
-  border: 1px solid #ccc;
-  border-width: 1px 0 0;
-}
-footer a {
+.main h1 a {
   text-decoration: none;
   color: #333;
 }
-footer a small {
-  display: block;
+.main h2 {
   padding: 10px;
+}
+
+dl.conf-meta {
+  margin: 15px 10px 30px;
+  border-bottom: 1px dotted #ccc;
+}
+dl.conf-meta dt {
+  float: left;
+  width: 70px;
+  padding: 5px 10px;
+  border-top: 1px dotted #ccc;
+}
+dl.conf-meta dd {
+  margin: 0 0 0 90px;
+  padding: 5px 10px;
+  border-top: 1px dotted #ccc;
 }
 
 dl.proceedings-meta {
@@ -123,4 +107,55 @@ dl.proceedings-meta dd {
   line-height: 20px;
   border-top: 1px dotted #ccc;
   word-break: break-all;
+}
+
+p {
+  padding: 3px 10px 30px;
+}
+ul, ol {
+  margin: 5px 20px 20px 50px;
+}
+li {
+  margin: 0;
+}
+li::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+li a {
+  display: block;
+  border-radius: 3px;
+  text-decoration: none;
+  margin: -4px 0 4px;
+  padding: 4px 10px 8px;
+}
+li a:hover {
+  background: #eee;
+}
+li a.page-link {
+  float: left;
+  width: calc(100% - 100px);
+}
+li a.pdf-link {
+  float: right;
+  width: 65px;
+  padding: 4px 5px 8px;
+  text-align: center;
+}
+
+footer {
+  margin: 0;
+  padding: 10px 20px 30px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-width: 1px 0 0;
+}
+footer a {
+  text-decoration: none;
+  color: #666!important;
+}
+footer a small {
+  display: block;
+  padding: 10px;
 }

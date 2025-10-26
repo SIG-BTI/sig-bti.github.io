@@ -1,0 +1,22 @@
+{
+  "conf_id":    "BTI08",
+  "conf_name":  "AIoT行動変容学会第8回研究会",
+  "conjunction_conf": {
+    "name": "",
+    "url": ""
+  },
+  "conf_url":   "https://www.sig-bti.jp/event/bti08.html",
+  "start_date": ["2024", "12", "13"],
+  "end_date":   ["2024", "12", "14"],
+  "venue_city": {
+    "en": "Okayama",
+    "ja": "岡山県岡山市"
+  },
+  "venue_place": {
+    "en": "Okayama University, Tsushima Campus",
+    "ja": "岡山大学 津島キャンパス"
+  },
+  "proceedings_urls": {
+    "Proceedings (combined PDF)": "pdf/Proceedings_BTI08.pdf"
+  }
+}

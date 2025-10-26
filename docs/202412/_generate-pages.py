@@ -1,24 +1,35 @@
 import pandas as pd
 import os
+import json
 
-csv_data = pd.read_csv('_proc.csv')
+csv_data = pd.read_csv('data/proc.csv')
+with open('data/conf-meta.json', "r", encoding="utf-8") as f:
+    conf_meta = json.load(f)
 
-c_date = ["2024", "12", "13"] # yyyy, mm, dd
-conf_place_en = "Okayama"
-conf_place_ja = "岡山大学 津島キャンパス（岡山県岡山市）"
-conf_id = "BTI08"
-conf_name = "AIoT行動変容学会第８回研究会（" + conf_id + "）"
-conf_url = "https://www.sig-bti.jp/event/bti08.html"
+print(conf_meta)
 
-proceedings_urls = {
-  "Proceedings (all)": "pdf/Proceedings_BTI08.pdf"
-}
+conf_id   = conf_meta["conf_id"]
+conf_name = conf_meta["conf_name"] + "（" + conf_id + "）"
+conf_url  = conf_meta["conf_url"]
+
+start_date = conf_meta["start_date"] # yyyy, mm, dd
+end_date   = conf_meta["end_date"] # yyyy, mm, dd (if one-day conference, keep empty)
+
+venue_city_en = conf_meta["venue_city"]["en"]
+venue_city_ja = conf_meta["venue_city"]["ja"]
+conf_place_en = conf_meta["venue_place"]["en"] + ", " + venue_city_en
+conf_place_ja = conf_meta["venue_place"]["ja"] + "（" + venue_city_ja + "）"
+
+conjunction_conf_name = conf_meta["conjunction_conf"]["name"]
+conjunction_conf_url = conf_meta["conjunction_conf"]["url"]
+
+proceedings_urls = conf_meta["proceedings_urls"]
 
 # do not change
-issued_date = "/".join(c_date)
-conf_month = ".".join(c_date[:2])
-conf_date_ja = c_date[0] + "年" + c_date[1] + "月" + c_date[2] + "日"
-pdf_url = "https://sig-bti.github.io/" + c_date[0] + c_date[1] + "/pdf/{proc_id}.pdf"
+issued_date = "/".join(start_date)
+conf_month = ".".join(start_date[:2])
+conf_date_ja = start_date[0] + "年" + start_date[1] + "月" + start_date[2] + "日" + ("〜" + end_date[1] + "月" + end_date[2] + "日" if len(end_date) > 2 else "")
+pdf_url = "https://sig-bti.github.io/" + start_date[0] + start_date[1] + "/pdf/{proc_id}.pdf"
 
 category_list = {
   "oral": "口頭発表（Oral）",
@@ -57,7 +68,7 @@ def gen_paper_page_html(proc_id, author, title, category, start_page, end_page):
   </header>
   <div class="main">
     <ul class="breadcrumb clearfix">
-      <li><a href="../">Top</a></li>
+      <li><a href="../../../">Top</a></li>
       <li><a href="../../">{conf_id}</a></li>
       <li>{proc_id}</li>
     </ul>
@@ -76,7 +87,7 @@ def gen_paper_page_html(proc_id, author, title, category, start_page, end_page):
   <footer>
     <a href="http://www.sig-bti.jp/">
       AIoT行動変容学会（BTI）<br>
-      Behavior Transformation by IoT
+      Academy of Behavior Transformation by AIoT
       <small>http://www.sig-bti.jp/</small>
     </a>
   </footer>
@@ -133,12 +144,16 @@ def gen_index_page_html():
       <li><a href="../">Top</a></li>
       <li>{conf_id}</li>
     </ul>
-    <h1>{conf_id} in {conf_place_en} ({conf_month})</h1>
-    <p>
-      {conf_name}, {conf_date_ja}, {conf_place_ja}<br>
-      <a href="{conf_url}">{conf_url}</a>
-    </p>
-    <h2>Combined</h2>
+    <h1>{conf_id} in {venue_city_en} ({conf_month})</h1>
+    <dl class="conf-meta clearfix">
+      <dt>名称</dt><dd>{conf_name}</dd>
+      {conjunction_conf_info}
+      <dt>日程</dt><dd>{conf_date_ja}</dd>
+      <dt>会場</dt><dd>{conf_place_ja}</dd>
+                  <dd>{conf_place_en}</dd>
+      <dt>URL</dt><dd><a href="{conf_url}">{conf_url}</a></dd>
+    </dl>
+    <h2>Proceedings</h2>
     <ul>
       {proceedings_pdf_list}
     </ul>
@@ -154,38 +169,47 @@ def gen_index_page_html():
   <footer>
     <a href="http://www.sig-bti.jp/">
       AIoT行動変容学会（BTI）<br>
-      Behavior Transformation by IoT
+      Academy of Behavior Transformation by AIoT
       <small>http://www.sig-bti.jp/</small>
     </a>
   </footer>
 </body>
 </html>'''.format(conf_id = conf_id,
-                  conf_place_en = conf_place_en,
+                  venue_city_en = venue_city_en,
                   conf_place_ja = conf_place_ja,
+                  conf_place_en = conf_place_en,
                   conf_month = conf_month,
                   conf_date_ja = conf_date_ja,
                   conf_name = conf_name,
                   conf_url = conf_url,
                   issued_date = issued_date,
+                  conjunction_conf_info = get_conjunction_conf_info(),
                   proceedings_pdf_list = gen_proceedings_pdf_list(),
                   oral_session_list = gen_paper_list("oral"),
                   posterdemo_session_list = gen_paper_list("posterdemo"))
   return html
 
+def get_conjunction_conf_info():
+
+  html = ""
+
+  if conjunction_conf_name != "" and conjunction_conf_url != "":
+    html = "<dt>連携学会</dt><dd><a href=\"" + conjunction_conf_url + "\">" + conjunction_conf_name + "</a></dd>"
+
+  return html 
+
 def gen_proceedings_pdf_list():
 
   html = ""
+
   for k, v in proceedings_urls.items():
     html += "<li><a href=\"" + v + "\">" + k + "</a></li>"
 
   return html
 
 
-
 def gen_paper_list(target_category):
-
   html = ""
-
   for i, row in csv_data.iterrows():
     proc_id = conf_id.lower() + "_" + str(row['id']).zfill(2)
     author = row['author'].split(';')
@@ -195,7 +219,7 @@ def gen_paper_list(target_category):
     if category == target_category:
       html += "<li>" \
               + "<a href=\"proc/"+proc_id+"/\" class=\"page-link\">" \
-                + ", ".join(author) + "：「" + title + "」</a>" \
+                + ", ".join(author) + "<br><strong>" + title + "</strong></a>" \
               + "<a href=\"pdf/"+proc_id+".pdf\" class=\"pdf-link\">[PDF]</a>" \
             + "</li>"
 

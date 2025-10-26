@@ -1,0 +1,22 @@
+{
+  "conf_id":    "BTI06",
+  "conf_name":  "AIoT行動変容学会第6回研究会",
+  "conjunction_conf": {
+    "name": "",
+    "url": ""
+  },
+  "conf_url":   "https://www.sig-bti.jp/event/bti06-report.html",
+  "start_date": ["2023", "12", "22"],
+  "end_date":   [],
+  "venue_city": {
+    "en": "Tokyo",
+    "ja": "東京都文京区"
+  },
+  "venue_place": {
+    "en": "The University of Tokyo III/GSII, The Daiwa Ubiquitous Computing Research Building",
+    "ja": "東京大学大学院 情報学環ダイワユビキタス学術研究館"
+  },
+  "proceedings_urls": {
+    "Proceedings (combined PDF)": "pdf/Proceedings_BTI06.pdf"
+  }
+}
